@@ -32,19 +32,19 @@ function App() {
 
         if (priceDifference >= 0) {
           setProfitPerCent(
-            "The profit percent is " + ((priceDifference / initialPrice) * 100).toFixed(2)
+            "The Profit Per Cent is " + ((priceDifference / initialPrice) * 100).toFixed(2)+"%."
           );
           setProfitAmount(
-            "and the total profit value is " + priceDifference * stockQuantity
+            "And Total Profit Value is ₹" + priceDifference * stockQuantity
           );
           setResultColor("green");
           setResultDisplay("block");
         } else {
           setProfitPerCent(
-            "the loss percent is " + ((priceDifference / initialPrice) * 100).toFixed(2)
+            "The Loss Per Cent is " + ((Math.abs(priceDifference) / initialPrice) * 100).toFixed(2)+"%."
           );
           setProfitAmount(
-            "and the total loss value is " + priceDifference * stockQuantity
+            "And Total Loss Value is ₹" + Math.abs(priceDifference) * stockQuantity
           );
           setResultColor("Red");
           setResultDisplay("block");
@@ -61,8 +61,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Stock Profit Loss Calculator</h1>
-        <p>Calculate the profit on your investment easy way</p>
+        <h1>Stock Profit/Loss Calculator</h1>
+        <h4>Calculate The Profit Of Your Investment Easy Way</h4>
       </header>
       <div>
         <form action="">
@@ -70,7 +70,7 @@ function App() {
           <input
             onChange={(e) => setInitialPrice(e.target.value)}
             type="number"
-            placeholder="Initial Stock Price"
+            placeholder="Initial Stock Price(₹)"
           />
 
           <label htmlFor="">How much Quantity</label>
@@ -84,11 +84,11 @@ function App() {
           <input
             onChange={(e) => setCurrentPrice(e.target.value)}
             type="number"
-            placeholder="Current Value"
+            placeholder="Current Value(₹)"
           />
 
           <button onClick={(e) => clcHandler(e)}>Calculate</button>
-          <p style={{ color: "red", fontSize: "20px" }}>{errorMessage}</p>
+          {errorMessage && <p style={{ color: "red", fontSize: "20px" }}>{errorMessage}</p>}
         </form>
         <div id="resultBox" style={{ backgroundColor: resultColor, display: resultDisplay }}>
           <p>{profitPerCent}</p>

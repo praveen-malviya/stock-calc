@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@300;700&display=swap');
+
 html {
   height: 100%;
 }
@@ -7,7 +9,8 @@ body {
   padding: 0;
   color: #335b96;
   min-height: 100%;
-  /* background-color: yellowgreen; */
+  font-family: 'Stick No Bills', sans-serif;
+  letter-spacing: 1px
 }
 
 .App {
@@ -20,50 +23,53 @@ body {
 
 h1 {
   margin-bottom: 0;
+  color: teal;
 }
 form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  
 }
 
 form label {
-
 }
 
 form input {
-  margin:  5px auto 30px auto;
-  padding: 8px;
+  margin: 5px auto 30px auto;
+  padding: 8px 20px;
+  border: 2px solid teal;
+  border-radius: 20px;
+
 }
 
 button {
   margin: 10px auto;
-background-color: #335b96;
-color: whitesmoke;
-padding: 5px 20px;
-font-weight: bold;
-border: 1px solid tan;
-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
+  background-color: #335b96;
+  color: whitesmoke;
+  padding: 8px 20px;
+  font-weight: bold;
+  border: 2px solid teal;
+  border-radius: 20px;
+  font-family: 'Stick No Bills', sans-serif;
+  letter-spacing: inherit;
 }
 
 #resultBox {
-  margin:  5px auto;
+  margin: 5px auto;
   max-width: 300px;
   color: whitesmoke;
-  padding: 8px 20px;
-  border-radius: 10px;
+  padding: 8px 10px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .footer {
   margin-top: auto;
-  
 }
 
 .footer h5 {
-  margin: 6px 0px;
+  margin: 40px 0px 5px 0px;
   font-weight: bolder;
 }
 
