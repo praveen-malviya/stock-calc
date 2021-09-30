@@ -30,7 +30,17 @@ function App() {
         
         const priceDifference = currentPrice - initialPrice;
 
-        if (priceDifference >= 0) {
+        if (priceDifference === 0) {
+          setProfitPerCent(
+            "Well You are in No loss No Profit zone"
+          );
+          setProfitAmount(
+            "Hang in there things will get better"
+          );
+          setResultColor("darkorange");
+          setResultDisplay("block");
+          }
+        else if (priceDifference > 0) {
           setProfitPerCent(
             "The Profit Per Cent is " + ((priceDifference / initialPrice) * 100).toFixed(2)+"%."
           );
@@ -39,7 +49,7 @@ function App() {
           );
           setResultColor("green");
           setResultDisplay("block");
-        } else {
+        } else  {
           setProfitPerCent(
             "The Loss Per Cent is " + ((Math.abs(priceDifference) / initialPrice) * 100).toFixed(2)+"%."
           );
