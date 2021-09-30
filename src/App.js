@@ -13,33 +13,45 @@ function App() {
 
   const [resultColor, setResultColor] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [resultDisplay, setResultDisplay] = useState("none")
 
   const clcHandler = (e) => {
+    
     e.preventDefault();
-    if (currentPrice || initialPrice) {
-      if (currentPrice > 0 || initialPrice > 0) {
-        setErrorMessage("")
+
+    setProfitAmount("");
+    setProfitPerCent("");
+    setResultColor("");
+    setErrorMessage("")
+
+    if (currentPrice && initialPrice && stockQuantity) {
+      if (currentPrice > 0 && initialPrice > 0 && stockQuantity > 0) {
+        setErrorMessage("");
+        
         const priceDifference = currentPrice - initialPrice;
 
         if (priceDifference >= 0) {
           setProfitPerCent(
-            "The profit percent is " + (priceDifference / initialPrice) * 100
+            "The profit percent is " + ((priceDifference / initialPrice) * 100).toFixed(2)
           );
           setProfitAmount(
             "and the total profit value is " + priceDifference * stockQuantity
           );
           setResultColor("green");
+          setResultDisplay("block");
         } else {
           setProfitPerCent(
-            "the loss percent is " + (priceDifference / initialPrice) * 100
+            "the loss percent is " + ((priceDifference / initialPrice) * 100).toFixed(2)
           );
           setProfitAmount(
             "and the total loss value is " + priceDifference * stockQuantity
           );
           setResultColor("Red");
+          setResultDisplay("block");
+          
         }
       } else {
-        setErrorMessage("How can the stock value in Negative");
+        setErrorMessage("All the values should be greater than ZERO");
       }
     } else {
       setErrorMessage("Please Fill all the Value");
@@ -78,7 +90,7 @@ function App() {
           <button onClick={(e) => clcHandler(e)}>Calculate</button>
           <p style={{ color: "red", fontSize: "20px" }}>{errorMessage}</p>
         </form>
-        <div id="resultBox" style={{ backgroundColor: resultColor }}>
+        <div id="resultBox" style={{ backgroundColor: resultColor, display: resultDisplay }}>
           <p>{profitPerCent}</p>
           <p>{profitAmount}</p>
         </div>
