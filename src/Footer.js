@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer">
       <h5 className="copyright"> © | 2021 | Praveen Malviya </h5>
       <div className="socialLinks">
-        <a href="https://www.linkedin.com/in/mpraveen07">
+        <a href="https://www.linkedin.com/in/praveen-malviya">
           <img src={linkedInLogo} alt="Linkedin logo" />
         </a>
         <a href="https://github.com/praveen-malviya">
